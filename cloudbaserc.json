@@ -1,0 +1,34 @@
+{
+  "envId": "env-zvsuoleu",
+  "functionRoot": "cloudfunctions",
+  "framework": {
+    "name": "starter",
+    "plugins": {
+      "client": {
+        "use": "@cloudbase/framework-plugin-website",
+        "inputs": {
+          "buildCommand": "npm run build",
+          "outputPath": "build",
+          "cloudPath": "/starter"
+        }
+      },
+      "server": {
+        "use": "@cloudbase/framework-plugin-function",
+        "inputs": {
+          "functionRootPath": "cloudfunctions",
+          "functions": [
+            {
+              "name": "node-stater",
+              "config": {
+                "timeout": 5,
+                "envVariables": {},
+                "runtime": "Nodejs10.15",
+                "memorySize": 128
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
